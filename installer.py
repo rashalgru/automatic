@@ -214,7 +214,7 @@ def clone(url, folder, commithash=None):
                 return
     else:
         log.info(f'Cloning repository: {url}')
-        git(f'clone "{url}" "{folder}"')
+        git(f'clone --filter=blob:none "{url}" "{folder}"')
         if commithash is not None:
             git(f'-C "{folder}" checkout {commithash}')
 
